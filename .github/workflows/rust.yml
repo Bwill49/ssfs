@@ -15,15 +15,12 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v4
-    
     - name: Build
-      run: cargo build
-
+      run: cargo build --verbose
     - name: Run tests
-      run: cargo test
+      run: cargo test --verbose
 
 #  generate-sbom:
 #    name: Generate SBOM
@@ -55,10 +52,10 @@ jobs:
     # https://github.com/trufflesecurity/trufflehog#octocat-trufflehog-github-action
  #   steps:
 #     - name: Checkout code
-       uses: actions/checkout@v4
-       with:
-         fetch-depth: 0
-     - name: Secret Scanning
-       uses: trufflesecurity/trufflehog@main
-       with:
-         extra_args: --results=verified,unknown
+#       uses: actions/checkout@v4
+#       with:
+#         fetch-depth: 0
+#     - name: Secret Scanning
+#       uses: trufflesecurity/trufflehog@main
+#       with:
+#         extra_args: --results=verified,unknown
